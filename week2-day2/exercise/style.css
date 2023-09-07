@@ -1,0 +1,115 @@
+header {
+  background: url(central_park.jpg) 0 -190px no-repeat; /* Adjusted background position */
+  background-size: 1600px; /* Increased background size */
+  height: 420px; /* Increased height */
+  padding-top: 90px; /* Reduced padding-top */
+  padding-left: 80px; /* Reduced padding-left */
+  font-family: "Times New Roman", Times, serif; /* Changed font family */
+  font-weight: bold;
+}
+
+li {
+  list-style-position: none;
+  display: inline;
+  padding: 0 25px; /* Increased padding */
+}
+
+li a {
+  text-decoration: none;
+}
+
+li a:link {
+  color: rgb(109, 121, 159); /* Adjusted color */
+}
+
+li a:visited {
+  color: #4f058a; /* Adjusted color */
+}
+
+li a:hover {
+  color: #333; /* Adjusted color */
+}
+
+li a:active {
+  color: #693a20; /* Adjusted color */
+}
+
+nav {
+  background-color: rgb(250, 240, 233); /* Adjusted color */
+  height: 55px; /* Increased height */
+  text-align: center;
+  padding-top: 5px; /* Increased padding-top */
+}
+
+main {
+  margin: 40px 60px; /* Adjusted margin */
+}
+
+main h1 {
+  color: rgb(119, 131, 169); /* Adjusted color */
+  font-family: "Georgia, Times New Roman, Times, serif"; /* Changed font family */
+  font-size: 1.2em; /* Adjusted font-size */
+}
+
+table {
+  margin-top: 30px; /* Reduced margin-top */
+}
+
+table,
+caption,
+th,
+td {
+  border: 1px solid #333; /* Adjusted color */
+  font-family: "Times New Roman", Times, serif; /* Changed font family */
+}
+
+thead {
+  background-color: #f5f5dc; /* Adjusted color */
+}
+
+th,
+td {
+  width: 160; /* Increased width */
+  height: 40px; /* Increased height */
+}
+
+caption {
+  text-transform: uppercase;
+  font-size: larger; /* Adjusted font-size */
+  font-weight: bolder;
+  height: 45px; /* Increased height */
+  padding-top: 10px; /* Reduced padding-top */
+  color: #6f3a20; /* Adjusted color */
+  background-color: #ffe4b5; /* Adjusted color */
+}
+
+label {
+  display: block;
+  margin: 10px 0 5px 0; /* Adjusted margin */
+}
+
+input {
+  width: 310px; /* Increased width */
+}
+
+input[type="radio"] {
+  width: 20px; /* Reduced width */
+}
+
+textarea {
+  width: 310px; /* Increased width */
+}
+
+input[type="submit"] {
+  display: block;
+  margin: 25px 0 15px 0; /* Adjusted margin */
+  width: 110px; /* Increased width */
+}
+
+footer {
+  height: 45px; /* Increased height */
+  background-color: rgb(119, 131, 159); /* Adjusted color */
+  text-align: center;
+  padding-top: 15px; /* Reduced padding-top */
+  color: rgb(191, 198, 220); /* Adjusted color */
+}

@@ -1,0 +1,54 @@
+<html>
+<head>
+    <title>My Branding Page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Container is to wrap everything -->
+    <div id="container">
+        <!-- Website Brand -->
+        <header>My Webpage Brand</header>
+        <!-- Main Navigation -->
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="page2.html">About Us</a></li>
+                <li><a href="page3.html">Contact Us</a></li>
+                <li><a href="/">Gallery</a></li>
+            </ul>
+        </nav>
+        <!-- Main Content -->
+        <main>
+            <h1>My Third Heading</h1>
+            <p>This is my third paragraph of information.</p>
+            <form action="/signup", method="post">
+                <fieldset>
+                    <legend>User Personal Information</legend>
+                    <label>Your Full Name</label>
+                    <input type="text", name="full_name">
+                    <label>Your Email Address</label>
+                    <input type="email", name="email">
+                    <label>Your Phone Number</label>
+                    <input type="text", name="phone">
+                    <label>Your Gender</label>
+                    <input type="radio", name="gender" value="male"> Male
+                    <input type="radio", name="gender" value="female"> Female
+                    <input type="radio", name="gender" value="other"> Other
+                    <label>How should we contact you?</label>
+                    <select>
+                        <option>Email</option>
+                        <option>Phone</option>
+                        <option>Carrier Pidgeon</option>
+                    </select>
+                    <label>What do you need today?</label>
+                    <textarea rows="5"></textarea>
+                    <input type="submit" value="Sign Up"></input>
+                </fieldset>
+            </form>
+        </main>
+        <!-- Footer -->
+        <footer>&copy; Copyright 2023</footer>
+    </div>
+    <!-- End Container -->
+</body>
+</html>
