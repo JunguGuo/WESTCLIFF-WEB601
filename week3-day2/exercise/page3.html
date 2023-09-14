@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <title>My Third Web Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <!-- Container is to wrap everything -->
+    <div id="container">
+      <!-- Website Brand -->
+      <header>My Webpage Brand</header>
+      <!-- Main Navigation -->
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="page2.html">About Us</a></li>
+          <li><a href="page3.html">Contact Us</a></li>
+          <li><a href="page4.html">Gallery</a></li>
+          <li>Gallery</li>
+        </ul>
+      </nav>
+      <!-- Main Content -->
+      <main>
+        <h1>My Third Heading</h1>
+        <p>This is my third paragraph of information.</p>
+        <img src="central_park.jpg" alt="Central Park Winter" width="500" />
+        <form action="/signup" method="post">
+          <fieldset>
+            <legend>User Personal Information</legend>
+            <label>Your Full Name</label><br />
+            <input type="text" name="full_name" /><br />
+            <label>Your Email Address</label><br />
+            <input type="email" name="email" /><br />
+            <label>Your Phone Number</label><br />
+            <input type="text" name="phone" /><br />
+            <label>Your Gender</label><br />
+            <input type="radio" name="gender" value="male" />Male<br />
+            <input type="radio" name="gender" value="female" />Female<br />
+            <input type="radio" name="gender" value="other" />Other<br />
+            <label>How should we contact you?</label><br />
+            <select name="contact_method">
+              <option>Email</option>
+              <option>Phone</option>
+              <option>Carrier Pidgeon</option></select
+            ><br />
+            <label>What did you need today?</label><br />
+            <textarea rows="5" columns="40"></textarea><br />
+            <input type="submit" value="Sign Up" /><br />
+          </fieldset>
+        </form>
+      </main>
+      <!-- Footer -->
+      <footer>&copy; Copyright 2023</footer>
+    </div>
+    <!-- End Container -->
+  </body>
+</html>
