@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Great Cliff</title>
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+
+  <body id="home">
+    <div class="container">
+      <header>
+        <div class="main-header">
+          <div class="logo">
+            <img src="images/logo.png" alt="Great Cliffs Logo" width="125" />
+          </div>
+          <nav class="main-menu">
+            <ul>
+              <li class="active"><a href="index.html">Home</a></li>
+              <li><a href="cliffs.html">Cliffs</a></li>
+              <li><a href="activities.html">Activities</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+
+      <section id="timeofday">
+        <span>Your Current Local Time: </span>
+        <span id="clock"></span>
+      </section>
+
+      <main>
+        <h1>Introducing California's Greatest Cliffs</h1>
+        <h2>What is so unique about California cliffs?</h2>
+        <p>
+          California cliffs are one of a kind in the United States where no
+          cliffs are as magnificent and beautiful as them. And California is the
+          only state that have cliffs that fronts all possible environments:
+          sea, river, mountains and canyons. There are four such individual
+          unique cliffs: West Cliff, North Cliff, East Cliff and South Cliff.
+          All offer fantastic overlooking views, recreational areas, camping
+          sites, wildlife watch spots and overnight cabins.
+        </p>
+
+        <h2>Where are these cliffs?</h2>
+        <p>
+          Located within a 100 mile radius from Irvine, California, they can be
+          reached by roads easily. The closest cliff to Irvine is West Cliff,
+          which is the most popular and most visited.
+        </p>
+      </main>
+
+      <section>
+        <ul id="partners">
+          <!-- <li class="partner">
+            <img
+              src=" images/partners/partner-bustour.png"
+              alt="Partner Bus Tours"
+            />
+          </li>
+          <li class="partner">
+            <img
+              src="images/partners/partner-cabinrental.png"
+              alt="Partner Cabin Rental"
+            />
+          </li>
+          <li class="partner">
+            <img
+              src="images/partners/partner-campingadv.png"
+              alt="Partner Camping Adventure"
+            />
+          </li>
+          <li class="partner">
+            <img
+              src="images/partners/partner-collegetours.png"
+              alt="Partner College Tours"
+            />
+          </li>
+          <li class="partner">
+            <img
+              src="images/partners/partner-rentalbike.png"
+              alt="Partner Bike Rentals"
+            />
+          </li>
+          <li class="partner">
+            <img
+              src=" images/partners/partner-tourgroup.png"
+              alt="Partner Tour Group"
+            />
+          </li>  -->
+        </ul>
+      </section>
+
+      <footer>
+        <div id="nondisclaimer">
+          <div class="copy">&copy; Copyright 2020 :: GreatCliffs.com</div>
+          <div class="social">
+            <a href="#" class="fa fa-facebook"></a>
+            <a href="#" class="fa fa-instagram"></a>
+            <a href="#" class="fa fa-twitter"></a>
+          </div>
+        </div>
+        <div id="disclaimer">
+          <p>
+            This website is designed and created solely for educational purposes
+            only at Westcliff University. All contents are not intended for any
+            commercial gain or use.
+          </p>
+        </div>
+      </footer>
+    </div>
+  </body>
+
+  <script>
+    //Create a time data function
+    function currentTime() {
+      // Declare variables
+      var d = new Date(); // Get current date
+      var hr = d.getHours(); // Get current hours
+      var min = d.getMinutes(); // Get current minutes
+      var sec = d.getSeconds(); // Get current seconds
+      var ampm; // Declare empty variable to store AM or PM
+      var utchr = d.getUTCHours(); // Get current Greenwich Mean Time (GMT)
+      var timeDiff; // To store time difference between GMT hour and Local hour
+      var adjTimeDiff; // To store time difference converted to positive number
+      var timeZone; // To store the 4 time zones (PT, MT, CT, ET)
+
+      // Add 0 to single digits for seconds
+      if (sec < 10) {
+        sec = "0" + sec;
+      }
+
+      // Add 0 to single digits for minutes
+      if (min < 10) {
+        min = "0" + min;
+      }
+
+      if (hr == 12) {
+        ampm = "PM";
+      } else if (hr > 12) {
+        hr -= 12;
+        ampm = "PM";
+      } else {
+        ampm = "AM";
+      }
+
+      // Convert GMT to standard time
+      if (utchr >= 12) {
+        utchr -= 12;
+      }
+
+      // Calculate time difference between GMT hour and local hour
+      timeDiff = d.getUTCHours() - d.getHours();
+      if (timeDiff < 0) {
+        timeDiff += 24;
+      }
+
+      // Convert time difference, if negative, to positive
+      adjTimeDiff = Math.abs(timeDiff);
+
+      // Check which time zone based on the converted time difference
+      switch (adjTimeDiff) {
+        case 4:
+          timeZone = "ET"; // Eastern Time
+          break;
+        case 5:
+          timeZone = "CT"; // Central Time
+          break;
+        case 6:
+          timeZone = "MT"; // Mountain Time
+          break;
+        case 7:
+          timeZone = "PT"; // Pacific Time
+          break;
+        default:
+          timeZone = ""; // If not in the US time zones
+      }
+
+      var time = hr + ":" + min + ":" + sec + " " + ampm + " " + timeZone;
+      document.getElementById("clock").innerText = time;
+    }
+
+    currentTime();
+    setInterval(currentTime, 1000);
+
+    //Create an array of partners
+    const partners = [
+      { src: "images/partners/partner-bustour.png", alt: "Partner Bus Tours" },
+      {
+        src: "images/partners/partner-cabinrental.png",
+        alt: "Partner Cabin Rental",
+      },
+      {
+        src: "images/partners/partner-campingadv.png",
+        alt: "Partner Camping Adventure",
+      },
+      {
+        src: "images/partners/partner-collegetours.png",
+        alt: "Partner College Tours",
+      },
+      {
+        src: "images/partners/partner-rentalbike.png",
+        alt: "Partner Bike Rentals",
+      },
+      {
+        src: "images/partners/partner-tourgroup.png",
+        alt: "Partner Tour Group",
+      },
+    ];
+
+    const ulElement = document.getElementById("partners");
+
+    partners.forEach((partner) => {
+      const li = document.createElement("li");
+      li.classList.add("partner");
+
+      const img = document.createElement("img");
+      img.src = partner.src;
+      img.alt = partner.alt;
+
+      li.appendChild(img);
+      ulElement.appendChild(li);
+    });
+  </script>
+</html>
