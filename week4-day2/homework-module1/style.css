@@ -292,7 +292,7 @@ form .button {
 
 /* submit button */
 form .button input[type="submit"] {
-  /* background-color: #4977d1; */
+  background-color: #4977d1;
   color: #fff;
   border: none;
   padding: 10px 20px;
