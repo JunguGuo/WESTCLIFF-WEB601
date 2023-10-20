@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE Demo</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+</head>
+<body>
+
+    <div id="demo">
+        <!-- Step 2: Call the method using a click event -->
+        <button v-on:click = "asquare">Click</button>
+    </div>
+
+<script>
+
+    var vm = new Vue({
+        el: "#demo",
+        data: { a: 5 },
+
+        // Step 1: Add a method to calculate square of `a` (from `data`) when an event is triggered
+        methods: {
+            asquare: function(event) {
+                result = this.a * this.a
+                alert("The square of " + this.a + " is " + result);
+            }
+        }
+    })
+    
+</script>
+    
+</body>
+</html>

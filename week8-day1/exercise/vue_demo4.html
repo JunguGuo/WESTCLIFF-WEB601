@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>VUE Demo - Global Component</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+</head>
+<body>
+
+    <!-- Step 3: Call the Vue object created and display the `mycomponent1` tag -->
+    <div id="component1">
+       <mycomponent1></mycomponent1>
+    </div>
+
+<script>
+    // Step 2: add a tag named "mycomponent1" and rewrite the `template` attribute
+    Vue.component('mycomponent1', {
+        template: '<div><h1>Welcome to Vue Components!</h1></div>'
+    });
+
+    // Step 1: create a Vue object
+    var vm1 = new Vue({
+        el: '#component1'
+    })
+</script>
+    
+</body>
+</html>
+
