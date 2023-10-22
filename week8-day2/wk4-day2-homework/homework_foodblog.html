@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Food Blog</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Sacramento&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #leftside {
+        float: left;
+        width: 30%;
+        min-height: 1200px;
+        background-color: rgb(77, 192, 154);
+      }
+      #rightside {
+        float: left;
+        width: 70%;
+        min-height: 1200px;
+        background-color: rgb(238, 226, 192);
+        position: relative;
+      }
+      #container {
+        background-color: rgba(255, 255, 255, 0.85);
+        position: absolute;
+        top: 15%;
+        left: 15%;
+        min-width: 1100px;
+        min-height: 1050px;
+        border-radius: 0.7em;
+      }
+      header {
+        height: 50px;
+        background-color: rgba(231, 229, 229, 0.5);
+        font-size: 2.75em;
+        padding: 0.5em;
+        color: rgb(216, 150, 7);
+      }
+      header span {
+        font-family: "Sacramento", cursive;
+      }
+      main {
+        position: relative;
+      }
+      main h2 {
+        position: absolute;
+        left: 20%;
+        top: 30px;
+        margin: 25px 0 200px 50px;
+        color: rgb(60, 190, 160);
+        text-transform: uppercase;
+      }
+      main #photos img {
+        margin: 0.75em;
+        border: 0.85em solid rgb(255, 255, 255);
+      }
+      section#blogposts {
+        position: absolute;
+        left: 20%;
+        top: 70px;
+        padding: 50px;
+      }
+      main .post {
+        margin: 25px;
+        padding: 25px;
+        border: 2px solid rgba(83, 78, 58, 0.6);
+        border-radius: 0.5em;
+      }
+      footer {
+        position: absolute;
+        bottom: 0;
+        height: 50px;
+        width: 100%;
+        text-align: center;
+        font-size: 0.85em;
+      }
+
+      /* New CSS for the floating box and overlay */
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 2;
+      }
+      .info-box {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        z-index: 3;
+        text-align: center;
+        min-width: 300px;
+      }
+      .info-box h2 {
+        margin-bottom: 10px;
+      }
+      .close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        cursor: pointer;
+      }
+      /* CSS for the clickable profile image */
+      .clickable-img {
+        cursor: pointer;
+      }
+
+      /* Add styles for the profile image */
+      .profile-img {
+        /* border-radius: 50%; */
+        margin-right: 10px; /* Adjust as needed */
+      }
+    </style>
+  </head>
+  <body>
+    <aside id="leftside"></aside>
+    <aside id="rightside"></aside>
+    <div id="container">
+      <food-blog-header></food-blog-header>
+      <main>
+        <aside id="photos">
+          <img src="images/chili.jpg" alt="White Chicken Chili" width="180" />
+        </aside>
+
+        <comments-header></comments-header>
+        <section id="blogposts">
+          <blog-post
+            v-for="(post, index) in posts"
+            :key="index"
+            :post="post"
+            @author-clicked="handleAuthorClicked"
+          >
+          </blog-post>
+        </section>
+      </main>
+      <footer>&copy; Copyright FOOD BLOG</footer>
+
+      <div class="overlay" v-if="showInfoBox" @click="closeInfoBox"></div>
+      <div class="info-box" v-if="showInfoBox">
+        <span class="close-button" @click="closeInfoBox">X</span>
+        <h2>{{ activeAuthorInfo.name }}</h2>
+        <h3>{{ activeAuthorInfo.foodieLevel }}</h3>
+        <p>{{ activeAuthorInfo.bio }}</p>
+      </div>
+    </div>
+
+    <script>
+      // Define FoodBlogHeader component
+      Vue.component("food-blog-header", {
+        template: `<header><span>Food Blog</span></header>`,
+      });
+
+      // Define CommentsHeader component
+      Vue.component("comments-header", {
+        template: `<h2>Comments</h2>`,
+      });
+
+      // Define blog-post component
+      Vue.component("blog-post", {
+        props: ["post"],
+        template: `
+          <div class="post">
+              <img :src="profilePicture" alt="Profile" class="profile-img clickable-img" width="50" @click="$emit('author-clicked', post.author)" />
+              <span class="author">{{ post.author }}</span> — 
+              <span class="date">{{ post.date }}</span>
+              <span class="reply">REPLY</span>
+              <p>{{ post.content }}</p>
+          </div>`,
+        data: function () {
+          return {
+            profilePicture: "images/profile.png", // ensure this path is correct
+          };
+        },
+      });
+
+      new Vue({
+        el: "#container",
+        data: {
+          posts: [
+            {
+              author: "Brianna",
+              date: "February 18, 2021 @ 3:30 pm",
+              content:
+                "Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!",
+            },
+            {
+              author: "LINH",
+              date: "February 18, 2021 @ 3:30 pm",
+              content:
+                "Was amazing! My Walmart didn’t have coriander in stock and didn’t have ground cumin. I used serrano instead of jalapeño. It was just like my favorite tortilla soup from BJs. I am sending this recipe to my family. I want everyone to try it!",
+            },
+          ],
+          showInfoBox: false,
+          activeAuthorInfo: {
+            name: "",
+            foodieLevel: "",
+            bio: "",
+          },
+          authors: {
+            Brianna: {
+              name: "Brianna",
+              foodieLevel: "Foodie Level: Novice",
+              bio: "Food enthusiast. Love to cook and experiment. Into only organic, fat free, sugar free stuffs!",
+            },
+            LINH: {
+              name: "LINH",
+              foodieLevel: "Foodie Level: Newcomer",
+              bio: "Love food! Grew up with meat and potatoes. Recently venture outside my comfort zone. Loving everything I have been eating so far. Thai is my favorite at this time.",
+            },
+          },
+        },
+        methods: {
+          handleAuthorClicked(author) {
+            this.activeAuthorInfo = this.authors[author] || {};
+            this.showInfoBox = true;
+          },
+          closeInfoBox() {
+            this.showInfoBox = false;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
